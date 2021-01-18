@@ -32,12 +32,21 @@ namespace FirstBankOfSuncoast
         }
         static int CalculateBalance(List<Transaction> transactions)
         {
-            var total = 0;
-            foreach (var element in transactions)
+            var depositList = transactions.Where(x => x.TransactionType == "Deposit").ToList();
+            var withdrawList = transactions.Where(x => x.TransactionType == "Withdraw").ToList();
+            var depositTotal = 0;
+            var withdrawTotal = 0;
+            foreach (var element in depositList)
             {
-                total += element.Amount;
+                depositTotal += element.Amount;
+
             }
-            return total;
+            foreach (var element in withdrawList)
+            {
+                withdrawTotal += element.Amount;
+
+            }
+            return depositTotal - withdrawTotal;
         }
 
         static void Main(string[] args)
