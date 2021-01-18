@@ -9,15 +9,6 @@ namespace FirstBankOfSuncoast
         public string TransactionType { get; set; }
         public string DestinationAccount { get; set; }
 
-        // public int Deposit(int num)
-        // {
-
-        // }
-
-        // public int Withdraw(int num)
-        // {
-
-        // }
     }
     class Program
     {
@@ -85,7 +76,14 @@ namespace FirstBankOfSuncoast
                     }
                     if (userResponseChecking == "WITHDRAW")
                     {
-                        var checkingDepositAmount = int.Parse(PromptForString("How much would you like to deposit?"));
+                        var checkingWithdrawAmount = int.Parse(PromptForString("How much would you like to withdraw?"));
+                        var newTransaction = new Transaction
+                        {
+                            Amount = checkingWithdrawAmount,
+                            TransactionType = "Withdraw",
+                            DestinationAccount = "Checking"
+
+                        };
                     }
                     if (userResponseChecking == "QUIT")
                     {
@@ -103,10 +101,26 @@ namespace FirstBankOfSuncoast
 
                     if (userResponseSavings == "DEPOSIT")
                     {
+                        var savingsDepositAmount = int.Parse(PromptForString("How much would you like to deposit?"));
+                        var newTransaction = new Transaction
+                        {
+                            Amount = savingsDepositAmount,
+                            TransactionType = "Deposit",
+                            DestinationAccount = "Savings"
+
+                        };
 
                     }
                     if (userResponseSavings == "WITHDRAW")
                     {
+                        var savingsWithdrawAmount = int.Parse(PromptForString("How much would you like to withdraw?"));
+                        var newTransaction = new Transaction
+                        {
+                            Amount = savingsWithdrawAmount,
+                            TransactionType = "Withdraw",
+                            DestinationAccount = "Savings"
+
+                        };
 
                     }
                     if (userResponseSavings == "QUIT")
