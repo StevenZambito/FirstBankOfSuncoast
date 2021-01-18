@@ -1,0 +1,3 @@
+Amount,TransactionType,DestinationAccount
+100000,Deposit,Checking
+300,Deposit,Checking
