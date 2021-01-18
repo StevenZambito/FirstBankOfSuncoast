@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace FirstBankOfSuncoast
 {
     class Transaction
     {
-        public int Checking { get; set; }
-        public int Savings { get; set; }
+        public int Amount { get; set; }
+        public string TransactionType { get; set; }
+        public string DestinationAccount { get; set; }
 
         // public int Deposit(int num)
         // {
@@ -39,6 +41,9 @@ namespace FirstBankOfSuncoast
 
         static void Main(string[] args)
         {
+
+            var transactions = new List<Transaction>();
+
             var userHasChosenToQuit = false;
 
             while (userHasChosenToQuit == false)
@@ -68,6 +73,15 @@ namespace FirstBankOfSuncoast
                     if (userResponseChecking == "DEPOSIT")
                     {
                         var checkingDepositAmount = int.Parse(PromptForString("How much would you like to deposit?"));
+
+                        var newTransaction = new Transaction
+                        {
+                            Amount = checkingDepositAmount,
+                            TransactionType = "Deposit",
+                            DestinationAccount = "Checking"
+
+                        };
+
                     }
                     if (userResponseChecking == "WITHDRAW")
                     {
