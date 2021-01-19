@@ -1,3 +1,9 @@
 Amount,TransactionType,DestinationAccount
 100000,Deposit,Checking
 300,Deposit,Checking
+100300,Withdraw,Checking
+500,Deposit,Checking
+500,Withdraw,Checking
+500,Deposit,Checking
+500,Deposit,Savings
+500,Withdraw,Savings

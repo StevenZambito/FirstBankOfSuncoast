@@ -35,8 +35,8 @@ namespace FirstBankOfSuncoast
         }
         static int CalculateBalance(List<Transaction> transactions)
         {
-            var depositList = transactions.Where(x => x.TransactionType == "Deposit").ToList();
-            var withdrawList = transactions.Where(x => x.TransactionType == "Withdraw").ToList();
+            var depositList = transactions.Where(transaction => transaction.TransactionType == "Deposit").ToList();
+            var withdrawList = transactions.Where(transaction => transaction.TransactionType == "Withdraw").ToList();
             var depositTotal = 0;
             var withdrawTotal = 0;
             foreach (var element in depositList)
@@ -108,7 +108,7 @@ namespace FirstBankOfSuncoast
                     {
                         var checkingWithdrawAmount = int.Parse(PromptForString("How much would you like to withdraw?"));
 
-                        if (checkingBalance > checkingWithdrawAmount)
+                        if (checkingBalance >= checkingWithdrawAmount)
                         {
                             var newTransaction = new Transaction
                             {
@@ -168,7 +168,7 @@ namespace FirstBankOfSuncoast
                     if (userResponseSavings == "WITHDRAW")
                     {
                         var savingsWithdrawAmount = int.Parse(PromptForString("How much would you like to withdraw?"));
-                        if (savingsBalance > savingsWithdrawAmount)
+                        if (savingsBalance >= savingsWithdrawAmount)
                         {
                             var newTransaction = new Transaction
                             {
