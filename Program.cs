@@ -54,7 +54,6 @@ namespace FirstBankOfSuncoast
 
         static void Main(string[] args)
         {
-            // var transactions = new List<Transaction>();
             var fileReader = new StreamReader("transactions.csv");
             var csvReader = new CsvReader(fileReader, CultureInfo.InvariantCulture);
 
@@ -163,8 +162,8 @@ namespace FirstBankOfSuncoast
                         Console.WriteLine();
                         Console.WriteLine($"${savingsDepositAmount} was deposited into your savings account.");
                         Console.WriteLine();
-
                     }
+
                     if (userResponseSavings == "WITHDRAW")
                     {
                         var savingsWithdrawAmount = int.Parse(PromptForString("How much would you like to withdraw?"));
@@ -211,7 +210,6 @@ namespace FirstBankOfSuncoast
                             Console.WriteLine();
                             Console.WriteLine($"Transaction Type: {transaction.TransactionType}");
                             Console.WriteLine($"Amount: {transaction.Amount}");
-
                         }
                     }
 
@@ -223,7 +221,6 @@ namespace FirstBankOfSuncoast
                             Console.WriteLine();
                             Console.WriteLine($"Transaction Type: {transaction.TransactionType}");
                             Console.WriteLine($"Amount: {transaction.Amount}");
-
                         }
                     }
 
