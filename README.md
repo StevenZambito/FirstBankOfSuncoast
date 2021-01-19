@@ -4,12 +4,12 @@ The purpose of this assignment is to create a personal bank account manager. Thi
 
 ## Objectives
 
-Practice control structures.
-Practice data structures.
-Practice working with user data.
-Practice with LINQ.
-Practice with Object Oriented concepts such as classes and methods.
-Practice working with files.
+- Practice control structures.
+- Practice data structures.
+- Practice working with user data.
+- Practice with LINQ.
+- Practice with Object Oriented concepts such as classes and methods.
+- Practice working with files.
 
 ## Requirements
 
