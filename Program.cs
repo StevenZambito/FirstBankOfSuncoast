@@ -54,7 +54,6 @@ namespace FirstBankOfSuncoast
 
         static void Main(string[] args)
         {
-
             // var transactions = new List<Transaction>();
             var fileReader = new StreamReader("transactions.csv");
             var csvReader = new CsvReader(fileReader, CultureInfo.InvariantCulture);
@@ -67,7 +66,6 @@ namespace FirstBankOfSuncoast
 
             while (userHasChosenToQuit == false)
             {
-
                 Console.WriteLine("------------");
                 Console.WriteLine("Menu:");
                 Console.WriteLine();
@@ -97,7 +95,6 @@ namespace FirstBankOfSuncoast
                             Amount = checkingDepositAmount,
                             TransactionType = "Deposit",
                             DestinationAccount = "Checking"
-
                         };
 
                         transactions.Add(newTransaction);
@@ -105,13 +102,12 @@ namespace FirstBankOfSuncoast
                         Console.WriteLine();
                         Console.WriteLine($"${checkingDepositAmount} was deposited into your checking account.");
                         Console.WriteLine();
-
                     }
+
                     if (userResponseChecking == "WITHDRAW")
                     {
-
-
                         var checkingWithdrawAmount = int.Parse(PromptForString("How much would you like to withdraw?"));
+
                         if (checkingBalance > checkingWithdrawAmount)
                         {
                             var newTransaction = new Transaction
@@ -119,7 +115,6 @@ namespace FirstBankOfSuncoast
                                 Amount = checkingWithdrawAmount,
                                 TransactionType = "Withdraw",
                                 DestinationAccount = "Checking"
-
                             };
 
                             transactions.Add(newTransaction);
@@ -128,6 +123,7 @@ namespace FirstBankOfSuncoast
                             Console.WriteLine($"${checkingWithdrawAmount} was withdrawn from your checking account.");
                             Console.WriteLine();
                         }
+
                         else if (checkingBalance < checkingWithdrawAmount)
                         {
                             Console.WriteLine();
@@ -135,6 +131,7 @@ namespace FirstBankOfSuncoast
                             Console.WriteLine();
                         }
                     }
+
                     if (userResponseChecking == "QUIT")
                     {
                         userHasChosenToQuit = true;
@@ -187,6 +184,7 @@ namespace FirstBankOfSuncoast
                             Console.WriteLine($"${savingsWithdrawAmount} was withdrawn from your savings account.");
                             Console.WriteLine();
                         }
+
                         else if (savingsBalance < savingsWithdrawAmount)
                         {
                             Console.WriteLine();
@@ -194,13 +192,13 @@ namespace FirstBankOfSuncoast
                             Console.WriteLine();
                         }
                     }
+
                     if (userResponseSavings == "QUIT")
                     {
                         userHasChosenToQuit = true;
                     }
-
-
                 }
+
                 if (userResponse == "TRANSACTIONS")
                 {
                     var userResponseTransactions = PromptForString("Which account would you like to see transactions for? Checking or Savings?");
@@ -216,6 +214,7 @@ namespace FirstBankOfSuncoast
 
                         }
                     }
+
                     if (userResponseTransactions == "SAVINGS")
                     {
                         var savingsTransactions = transactions.Where(x => x.DestinationAccount == "Savings");
@@ -227,6 +226,7 @@ namespace FirstBankOfSuncoast
 
                         }
                     }
+
                     if (userResponseTransactions == "QUIT")
                     {
                         userHasChosenToQuit = true;
@@ -238,6 +238,7 @@ namespace FirstBankOfSuncoast
                     userHasChosenToQuit = true;
                 }
             }
+
             var fileWriter = new StreamWriter("transactions.csv");
             var csvWriter = new CsvWriter(fileWriter, CultureInfo.InvariantCulture);
             csvWriter.WriteRecords(transactions);
